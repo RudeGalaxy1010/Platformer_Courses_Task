@@ -3,6 +3,12 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
 public class PlayerController : MonoBehaviour
 {
+    public static class States 
+    { 
+        public const string Run = "Run"; 
+        public const string Jump = "Jump"; 
+    };
+
     [SerializeField] private float _movingSpeed;
     [SerializeField] protected float _jumpHeight;
     [SerializeField] private LayerMask _mask;
@@ -27,7 +33,7 @@ public class PlayerController : MonoBehaviour
             if (Physics2D.Raycast(transform.position, Vector2.down, 0.5f, _mask))
             {
                 _rigidbody.AddForce(Vector3.up * _jumpForce, ForceMode2D.Impulse);
-                _animator.SetTrigger("Jump");
+                _animator.SetTrigger(States.Jump);
             }
         }
 
@@ -35,11 +41,11 @@ public class PlayerController : MonoBehaviour
         
         if (horizontalInput != 0)
         {
-            _animator.SetBool("Run", true);
+            _animator.SetBool(States.Run, true);
         }
         else
         {
-            _animator.SetBool("Run", false);
+            _animator.SetBool(States.Run, false);
         }
     }
 }

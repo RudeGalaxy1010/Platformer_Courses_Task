@@ -5,9 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class Coin : MonoBehaviour
 {
-    private ScoreController _scoreController;
+    private Score _scoreController;
 
-    public void Init(ScoreController scoreController)
+    public void Init(Score scoreController)
     {
         _scoreController = scoreController;
     }

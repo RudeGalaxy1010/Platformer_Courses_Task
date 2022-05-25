@@ -6,7 +6,7 @@ public class CoinSpawner : MonoBehaviour
 {
     [SerializeField] private Coin _coinPrefab;
     [SerializeField] private Transform[] _coinSpawnPoints;
-    [SerializeField] private ScoreController _scoreController;
+    [SerializeField] private Score _scoreController;
 
     private void Start()
     {
